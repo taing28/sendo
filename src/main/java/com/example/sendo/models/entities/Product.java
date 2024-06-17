@@ -31,10 +31,10 @@ public class Product {
         this.id = id;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "productOrder")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private List<OrderProduct> orderProductList;
+    private List<OrderDetail> orderDetailList;
 
     @ManyToOne
     @JoinColumn(name = "categoryId", foreignKey = @ForeignKey(name = "fk_product_category"))
