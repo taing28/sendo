@@ -21,6 +21,7 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
+    private String name;
     private String phone;
     private Boolean status = true;
 
@@ -44,5 +45,5 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "userOrder")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private List<Order> orderList;
+    private List<Bill> billList;
 }

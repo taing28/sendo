@@ -18,7 +18,6 @@ public class Product {
     private Long id;
 
     private String name;
-    private String image;
     private String color;
     private String size;
     private Integer stock;
@@ -40,4 +39,9 @@ public class Product {
     @JoinColumn(name = "categoryId", foreignKey = @ForeignKey(name = "fk_product_category"))
     @JsonIgnore
     private Category category;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "productImage")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private List<Image> imageList;
 }

@@ -18,7 +18,7 @@ public class Role {
     private Long id;
 
     private String code;
-    private ERole role_name;
+    private ERole roleName;
 
     public Role(Long id) {
         this.id = id;

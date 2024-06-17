@@ -8,24 +8,17 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class OrderDetail {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer quantity;
+    private String name;
     @Column(insertable = false, updatable = false)
     private Long productId;
-    @Column(insertable = false, updatable = false)
-    private Long orderId;
 
     @ManyToOne
-    @JoinColumn(name = "productId", foreignKey = @ForeignKey(name = "fk_orderdetail_product"))
+    @JoinColumn(name = "productId", foreignKey = @ForeignKey(name = "fk_image_product"))
     @JsonIgnore
-    private Product product;
-
-    @ManyToOne
-    @JoinColumn(name = "orderId", foreignKey = @ForeignKey(name = "fk_orderdetail_bill"))
-    @JsonIgnore
-    private Bill bill;
+    private Product productImage;
 }

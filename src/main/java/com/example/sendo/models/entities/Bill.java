@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class Order {
+public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class Order {
     @Column(insertable = false, updatable = false)
     private Long customerId;
 
-    public Order(Long id) {
+    public Bill(Long id) {
         this.id = id;
     }
 
@@ -33,7 +33,7 @@ public class Order {
     @JsonIgnore
     private User userOrder;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "bill")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private List<OrderDetail> orderDetailList;
