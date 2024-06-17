@@ -33,8 +33,8 @@ public class Order {
     @JsonIgnore
     private User userOrder;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "orderProduct")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private List<OrderProduct> orderProductList;
+    private List<OrderDetail> orderDetailList;
 }

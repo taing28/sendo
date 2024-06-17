@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class OrderProduct {
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,12 +19,12 @@ public class OrderProduct {
     private Long orderId;
 
     @ManyToOne
-    @JoinColumn(name = "productId", foreignKey = @ForeignKey(name = "fk_productOrder"))
+    @JoinColumn(name = "productId", foreignKey = @ForeignKey(name = "fk_orderdetail_product"))
     @JsonIgnore
-    private Product productOrder;
+    private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "orderId", foreignKey = @ForeignKey(name = "fk_orderProduct"))
+    @JoinColumn(name = "orderId", foreignKey = @ForeignKey(name = "fk_orderdetail_order"))
     @JsonIgnore
-    private Order orderProduct;
+    private Order order;
 }

@@ -1,4 +1,4 @@
 package com.example.sendo.models.services.interfaces;
 
-public interface IOrderService {
+public interface IRoleService {
 }
