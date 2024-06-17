@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService implements IProductService {
     @Autowired
-    private ProductRepo _productRepo;
+    private ProductRepo productRepo;
 }
