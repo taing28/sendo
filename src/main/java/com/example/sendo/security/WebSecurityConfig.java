@@ -52,13 +52,14 @@ public class WebSecurityConfig {
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers("/unknown-yet/**").permitAll()//Thay doi sau khi them controller
-                                .anyRequest().authenticated()
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/users/**").permitAll()//Thay doi sau khi them controller
+                        .anyRequest().authenticated()
                 );
         //Them mot lop filter kiem tra jwt
-         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
-         return http.build();
+        return http.build();
     }
 
     @Bean

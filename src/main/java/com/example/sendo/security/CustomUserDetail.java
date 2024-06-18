@@ -29,7 +29,7 @@ public class CustomUserDetail implements UserDetails {
     }
 
     //Tu thong tin user chuyen sang thong tin CustomUserDetails
-    public static CustomUserDetail mapUserToUserDetail(User user){
+    public static CustomUserDetail mapUserToUserDetail(User user) {
         //Lay quyen tu doi tuong user
         GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().getRoleName().name());
         //Tra ve doi tuong CustomUserDetails
