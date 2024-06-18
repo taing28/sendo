@@ -53,7 +53,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/users/**").permitAll()//Thay doi sau khi them controller
+                        .requestMatchers("/user/**").permitAll()//Thay doi sau khi them controller
                         .anyRequest().authenticated()
                 );
         //Them mot lop filter kiem tra jwt

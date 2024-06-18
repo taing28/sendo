@@ -18,6 +18,7 @@ public class Role {
     private Long id;
 
     private String code;
+    @Enumerated(EnumType.STRING)
     private ERole roleName;
 
     public Role(Long id) {
