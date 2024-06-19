@@ -2,10 +2,12 @@ package com.example.sendo.controller;
 
 import com.example.sendo.libs.InputHelper;
 import com.example.sendo.models.dto.request.SignUpRequest;
+import com.example.sendo.models.dto.request.UserRequest;
 import com.example.sendo.models.dto.response.UserPageDTO;
 import com.example.sendo.models.entities.ERole;
 import com.example.sendo.models.entities.Role;
 import com.example.sendo.models.entities.User;
+import com.example.sendo.models.services.EmailService;
 import com.example.sendo.models.services.RoleService;
 import com.example.sendo.models.services.UserService;
 import jakarta.validation.Valid;
@@ -24,6 +26,8 @@ public class UserController {
     private UserService _userService;
     @Autowired
     private RoleService _roleService;
+    @Autowired
+    private EmailService _emailService;
     @Autowired
     private PasswordEncoder _passwordEncoder;
 
@@ -76,7 +80,20 @@ public class UserController {
 
         try {
             user = _userService.addNewUser(user);
+            _emailService.sendEmailWithHTML(user.getEmail(),"Welcome to Sendo Club", "<h1>Thanks for becoming our member</h1>"+"<h4>We won't let you down. Be happy with shopping^^!</h4>");
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
+    @PutMapping()
+    public ResponseEntity<?> updateUser(@Valid @RequestBody UserRequest userRequest, BindingResult bindingResult) throws Exception {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(InputHelper.checkBindingResult(bindingResult));
+        }
+        try {
+            User user = _userService.updateNewUser(userRequest);
             return ResponseEntity.ok(user);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

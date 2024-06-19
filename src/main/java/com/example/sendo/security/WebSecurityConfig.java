@@ -26,7 +26,7 @@ import java.util.Arrays;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
     @Autowired
-    private CustomUserDetailService customUserDetailService;
+    private CustomUserDetailService _customUserDetailService;
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
@@ -41,7 +41,7 @@ public class WebSecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(customUserDetailService);
+        authProvider.setUserDetailsService(_customUserDetailService);
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return new ProviderManager(authProvider);
