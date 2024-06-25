@@ -1,8 +1,9 @@
 import { memo } from "react";
-import Nav from 'react-bootstrap/Nav';
 import { Flex, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { HeaderHomePage } from "../header/HeaderHomePage";
+import { CategoryNavbar } from "../content/CategoryNavbar";
+import { CategoryBanner } from "../content/CategoryBanner";
 
 export const Homepage = memo(() => {
   const headerStyle = {
@@ -17,7 +18,6 @@ export const Homepage = memo(() => {
     minHeight: 120,
     lineHeight: '120px',
     color: '#fff',
-    backgroundColor: '#fff',
   };
   const footerStyle = {
     textAlign: 'center',
@@ -34,25 +34,12 @@ export const Homepage = memo(() => {
     <Flex gap="middle" wrap>
       <Layout style={layoutStyle}>
         <Header style={headerStyle}><HeaderHomePage /></Header>
-        <Content style={contentStyle}>
-              <Nav className="navbar-content justify-content-center" variant="underline" defaultActiveKey="/home">
-                <Nav.Item>
-                  <Nav.Link href="#">Cho bạn</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-1">Áo nữ</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-2">Đồ dùng nhà bếp</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-3">Vệ sinh, chăm sóc nhà cửa</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-4">Đầm, váy</Nav.Link>
-                </Nav.Item>
-              </Nav>
-          <h1 style={{color:'#ccc'}}>Content</h1>
+        <Content className="bg-body-secondary" style={contentStyle}>
+          <div>
+            <CategoryNavbar/>
+            <CategoryBanner/>
+            <h1 style={{ color: '#ccc' }}>Content</h1>
+          </div>
         </Content>
         <Footer style={footerStyle}>Footer</Footer>
       </Layout>
