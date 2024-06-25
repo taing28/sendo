@@ -5,11 +5,14 @@
 }
 
 .icon-header{
-    height: 24px;
+    font-size: 24px;
     transform: translateY(20%);
     padding:4px 8px;
 }
 
 .icon-header:hover {
-    background-color: gainsboro;
+    background-color: #ac1d1a;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
