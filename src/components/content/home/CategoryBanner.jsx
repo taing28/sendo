@@ -4,6 +4,7 @@ import catConImg from '../../../assets/image/cateCon.jpg'
 import adLeft from '../../../assets/image/advertise_left.jpg'
 import adRight from '../../../assets/image/advertise_right.jpg'
 import adMid from '../../../assets/image/advertise_middle.jpg'
+import { Link } from "react-router-dom";
 
 export const CategoryBanner = memo(() => {
     const cateCon = [{ image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' }, { image: catConImg, name: 'Cate Con' },]
@@ -16,14 +17,14 @@ export const CategoryBanner = memo(() => {
                     {cateCon.map((value, index) => {
                         return (
                             <li key={index}>
-                                <a href="#" style={{ textDecoration: 'none' }}>
+                                <Link to={'/category'} style={{ textDecoration: 'none' }}>
                                     <div className="card p-3 border-0" style={{ width: '120px' }}>
                                         <img src={value.image} class="card-img-top cate-image" alt="Cate con" />
                                         <div className="card-body text-center p-0">
                                             <h5 className="card-title">{value.name}</h5>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}

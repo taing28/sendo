@@ -2,7 +2,7 @@ import { Flex, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { HeaderHomePage } from "./components/header/HeaderHomePage";
 import { Route, Routes } from "react-router-dom";
-import { HeaderCategory, HomeContent } from "./components";
+import { CategoryContent, HeaderCategory, HomeContent } from "./components";
 
 
 function App() {
@@ -33,16 +33,15 @@ function App() {
   return (
     <Flex gap="middle" wrap>
       <Layout style={layoutStyle}>
-        
+
         <Header style={headerStyle}>
-        <Routes>
-          <Route path="/" element={<HeaderHomePage />}/>
-          <Route path="/category" element={<HeaderCategory />}/>
-        </Routes>
+          <HeaderHomePage />
         </Header>
         <Content className="bg-body-secondary" style={contentStyle}>
           <Routes>
             <Route path='/' element={<HomeContent />} />
+            <Route path='/category' element={<CategoryContent />} />
+            <Route path='/product-detail/:name' element={<CategoryContent />} />
           </Routes>
         </Content>
         <Footer style={footerStyle}>Footer</Footer>

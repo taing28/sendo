@@ -4,12 +4,16 @@ import logo from '../../assets/image/sendo-logo.png'
 import '../../assets/css/style.css'
 import { Container } from "react-bootstrap";
 import { SearchOutlined, ShoppingOutlined, AppstoreAddOutlined } from '@ant-design/icons'
+import { Link } from "react-router-dom";
 
 export const HeaderHomePage = memo(() => {
+    const data = ['Áo nữ', 'Áo nam', 'Áo hai dây', 'Áo ba lỗ', 'Đầm, váy'];
+
     const contentCategory = (
         <div>
-            <p>Content</p>
-            <p>Content</p>
+            {data.map((value, index) => {
+                return <Link style={{ textDecoration: 'none', color: 'black' }} to={`/${value}`}><p key={index}>{value}</p></Link>
+            })}
         </div>
     );
 
@@ -24,14 +28,14 @@ export const HeaderHomePage = memo(() => {
         <Container>
             <Row>
                 <Col span={2}>
-                    <div>
+                    <Link to={'/'}>
                         <img className="image-logo" src={logo} alt="Logo" />
-                    </div>
+                    </Link>
                 </Col>
                 <Col span={18}>
                     <Row>
                         <Col span={2} style={{ lineHeight: '64px' }}>
-                            <Popover content={contentCategory} title="Tieu de" trigger="hover">
+                            <Popover content={contentCategory} title="Thể loại" trigger="hover">
                                 <AppstoreAddOutlined className="icon-header" />
                             </Popover>
                         </Col>
