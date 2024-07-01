@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const { Content } = Layout;
 
-
+const data = [{ id: 1 }, { id: 2 }, { id: 3 }, {id:4}, {id:5},]
 
 export const CategoryContent = memo(() => {
 
@@ -31,20 +31,24 @@ export const CategoryContent = memo(() => {
                 <Content style={{ padding: '0 24px', minHeight: 280 }}>
                     <Container className="mt-3 mb-3">
                         <Row>
-                            <Col className="col-md-2">
-                            <Link href="/product-detail/ten">
-                                <Card
-                                    hoverable
-                                    style={{
-                                        width: 240,
-                                    }}
-                                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                                >
-                                    <Meta title="Name" description="Description" />
-                                    <h6 className='p-2'>Price</h6>
-                                </Card>
-                            </Link>
-                            </Col>
+                            {data.map((value, index) => {
+                                return (
+                                    <Col key={index} className="col-md-3">
+                                        <Link to={`/products/${index}`}>
+                                            <Card
+                                                hoverable
+                                                style={{
+                                                    width: 240,
+                                                }}
+                                                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                                            >
+                                                <Meta title="Name" description="Description" />
+                                                <h6 className='p-2'>Price</h6>
+                                            </Card>
+                                        </Link>
+                                    </Col>
+                                )
+                            })}
                         </Row>
                     </Container>
                 </Content>

@@ -2,7 +2,7 @@ import { Flex, Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { HeaderHomePage } from "./components/header/HeaderHomePage";
 import { Route, Routes } from "react-router-dom";
-import { CategoryContent, HeaderCategory, HomeContent } from "./components";
+import { CategoryContent, HomeContent, ProductDetailContent } from "./components";
 
 
 function App() {
@@ -40,8 +40,8 @@ function App() {
         <Content className="bg-body-secondary" style={contentStyle}>
           <Routes>
             <Route path='/' element={<HomeContent />} />
-            <Route path='/category' element={<CategoryContent />} />
-            <Route path='/product-detail/:name' element={<CategoryContent />} />
+            <Route path='/:filter' element={<CategoryContent />} />
+            <Route path='/products/:name' element={<ProductDetailContent />} />
           </Routes>
         </Content>
         <Footer style={footerStyle}>Footer</Footer>

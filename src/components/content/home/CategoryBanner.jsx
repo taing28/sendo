@@ -13,7 +13,7 @@ export const CategoryBanner = memo(() => {
         <Container fluid className="bg-body ps-5 pe-5 pb-5">
             {/* Category */}
             <Row>
-                <ul className="d-flex justify-content-center"style={{listStyle:'none'}} >
+                <ul className="d-flex justify-content-center" style={{ listStyle: 'none' }} >
                     {cateCon.map((value, index) => {
                         return (
                             <li key={index}>
@@ -32,19 +32,17 @@ export const CategoryBanner = memo(() => {
             </Row>
             {/* Advertising */}
             <Row>
-                <Col className="col-md-3">
-                <div>
+                <Col className="col-sm-6 col-lg-3" style={{ margin: 'auto' }}>
                     <a href="#">
                         <img className="ad-image" src={adLeft} alt="Left Img" />
                     </a>
-                </div>
                 </Col>
-                <Col className="col-md-6">
+                <Col className="col-sm-12 col-lg-6" style={{ margin: 'auto' }}>
                     <a href="#">
                         <img className="ad-image" src={adMid} alt="Left Img" />
                     </a>
                 </Col>
-                <Col className="col-md-3">
+                <Col className="col-sm-6 col-lg-3" style={{ margin: 'auto' }}>
                     <a href="#">
                         <img className="ad-image" src={adRight} alt="Left Img" />
                     </a>

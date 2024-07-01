@@ -1,3 +1,8 @@
+/* Common */
+.spacing {
+    height: 40px;
+}
+/*  */
 .image-logo {
     width: 80%;
     height: 48px;
@@ -44,4 +49,65 @@
     object-fit: cover;
     object-position: top;
     border-radius: 12px;
+}
+
+.product-thumb {
+    
+}
+
+.product-thumb img {
+    height: 450px !important;
+    object-fit: cover;
+}
+
+.product-list {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+}
+
+.product-list .prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+}
+
+.product-list .next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    cursor: pointer;
+}
+
+.product-list-detail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #ee2624;
+}
+
+.price-detail {
+    line-height: normal;
+    color: #ee2624;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.title-detail h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 2.2;
+}
+
+.selectedBtn {
+    border: #ee2624 solid 1px;
+}
+
+.property {
+    margin: 8px 4px;
 }
